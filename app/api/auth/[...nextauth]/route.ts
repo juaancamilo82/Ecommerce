@@ -1,11 +1,10 @@
-import NextAuth, { NextAuthOptions, Account, User as AuthUser, Profile } from "next-auth";
+import NextAuth, { NextAuthOptions, Account, User as AuthUser } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
 import prisma from "@/utils/db";
 import { nanoid } from "nanoid";
-
 
 const authOptions: NextAuthOptions = {
   providers: [
