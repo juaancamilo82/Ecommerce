@@ -27,7 +27,7 @@ const AdminOrders = () => {
 
   return (
     <div className="xl:ml-5 w-full max-xl:mt-5 ">
-      <h1 className="text-3xl font-semibold text-center mb-5">All orders</h1>
+      <h1 className="text-3xl font-semibold text-center mb-5">Todas las órdenes</h1>
       <div className="overflow-x-auto">
         <table className="table table-md table-pin-cols">
           {/* head */}
@@ -39,7 +39,7 @@ const AdminOrders = () => {
                 </label>
               </th>
               <th>Order ID</th>
-              <th>Name and country</th>
+              <th>Nombre y ciudad</th>
               <th>Status</th>
               <th>Subtotal</th>
               <th>Date</th>
@@ -99,7 +99,7 @@ const AdminOrders = () => {
             <tr>
               <th></th>
               <th>Order ID</th>
-              <th>Name and country</th>
+              <th>Nombre y ciudad</th>
               <th>Status</th>
               <th>Subtotal</th>
               <th>Date</th>

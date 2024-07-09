@@ -51,7 +51,7 @@ const Filters = () => {
 
   return (
     <div>
-      <h3 className="text-2xl mb-2">Filters</h3>
+      <h3 className="text-2xl mb-2">Filtros</h3>
       <div className="divider"></div>
       <div className="flex flex-col gap-y-1">
         <h3 className="text-xl mb-2">Availability</h3>
@@ -100,7 +100,7 @@ const Filters = () => {
 
       <div className="divider"></div>
       <div className="flex flex-col gap-y-1">
-        <h3 className="text-xl mb-2">Price</h3>
+        <h3 className="text-xl mb-2">Precio</h3>
         <div>
           <input
             type="range"

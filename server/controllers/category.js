@@ -28,7 +28,7 @@ async function updateCategory(request, response) {
     });
 
     if (!existingCategory) {
-      return response.status(404).json({ error: "Category not found" });
+      return response.status(404).json({ error: "Categoría no encontrada" });
     }
 
     const updatedCategory = await prisma.category.update({
@@ -42,7 +42,7 @@ async function updateCategory(request, response) {
 
     return response.status(200).json(updatedCategory);
   } catch (error) {
-    return response.status(500).json({ error: "Error updating category" });
+    return response.status(500).json({ error: "Error actualizando la categoría" });
   }
 }
 
@@ -57,7 +57,7 @@ async function deleteCategory(request, response) {
     return response.status(204).send();
   } catch (error) {
     console.log(error);
-    return response.status(500).json({ error: "Error deleting category" });
+    return response.status(500).json({ error: "Error eliminando la categoría" });
   }
 }
 
@@ -69,7 +69,7 @@ async function getCategory(request, response) {
     },
   });
   if (!category) {
-    return response.status(404).json({ error: "Category not found" });
+    return response.status(404).json({ error: "Categoría no encontrada" });
   }
   return response.status(200).json(category);
 }
@@ -79,7 +79,7 @@ async function getAllCategories(request, response) {
     const categories = await prisma.category.findMany({});
     return response.json(categories);
   } catch (error) {
-    return response.status(500).json({ error: "Error fetching categories" });
+    return response.status(500).json({ error: "Error al buscar categorías" });
   }
 }
 

@@ -30,7 +30,7 @@ const DashboardProductTable = () => {
 
   return (
     <div className="w-full">
-      <h1 className="text-3xl font-semibold text-center mb-5">All products</h1>
+      <h1 className="text-3xl font-semibold text-center mb-5">Todos los productos</h1>
       <div className="flex justify-end mb-5">
         <Link href="/admin/products/new">
           <CustomButton
@@ -39,7 +39,7 @@ const DashboardProductTable = () => {
             paddingX={10}
             paddingY={5}
             textSize="base"
-            text="Add new product"
+            text="Añadir nuevo producto"
           />
         </Link>
       </div>
@@ -54,9 +54,9 @@ const DashboardProductTable = () => {
                   <input type="checkbox" className="checkbox" />
                 </label>
               </th>
-              <th>Product</th>
-              <th>Stock Availability</th>
-              <th>Price</th>
+              <th>Producto</th>
+              <th>Disponibilidad de stock</th>
+              <th>Precio</th>
               <th></th>
             </tr>
           </thead>
