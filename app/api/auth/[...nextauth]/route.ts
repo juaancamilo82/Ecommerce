@@ -1,5 +1,4 @@
-import NextAuth from "next-auth";
-import { Account, User as AuthUser } from "next-auth";
+import NextAuth, { NextAuthOptions, Account, User as AuthUser, Profile } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
@@ -7,7 +6,8 @@ import bcrypt from "bcryptjs";
 import prisma from "@/utils/db";
 import { nanoid } from "nanoid";
 
-export const authOptions: any = {
+
+const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       id: "credentials",
@@ -48,11 +48,11 @@ export const authOptions: any = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account }: { user: AuthUser; account: Account }) {
+    async signIn({ user, account }: { user: AuthUser; account: Account | null }) {
       if (account?.provider === "credentials") {
         return true;
       }
-      
+
       if (account?.provider === "github" || account?.provider === "google") {
         try {
           const existingUser = await prisma.user.findFirst({ where: { email: user.email! } });
@@ -71,11 +71,12 @@ export const authOptions: any = {
           return false;
         }
       }
-      
+
       return false;
     },
   },
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
-export const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
